@@ -211,6 +211,13 @@
         window.renderFeed = () => {
             const feedEl = document.getElementById('feed');
             const searchVal = document.getElementById('skillSearch').value;
+            const formContainer = document.getElementById('profile-form-container');
+
+            if (searchVal.trim() !== "") {
+                formContainer.classList.add('hidden');
+            } else {
+                formContainer.classList.remove('hidden');
+            }
             const scored = allProfiles.map(p => ({
                 ...p,
                 score: getMatchScore(searchVal, p.skills)
